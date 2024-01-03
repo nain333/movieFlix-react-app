@@ -58,6 +58,17 @@ class MovieList extends React.Component{
 
 
   }
+  handleDecStar=(movie)=>{
+    const {movies}= this.state
+    const mid = movies.indexOf(movie);
+    if(movies[mid].star<=0){
+      return;
+    }
+    movies[mid].star-=0.5
+    this.setState({
+      movies
+    })
+  }
     render(){
         const {movies} =  this.state;
           
@@ -66,6 +77,7 @@ class MovieList extends React.Component{
                 {movies.map((movie,index) => (
                 <MovieCard movies = {movie}
                             addStars={this.handleIncStar}
+                            decStars={this.handleDecStar}
                            key = {index}/>
 
             ))}              

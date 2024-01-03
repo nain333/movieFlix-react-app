@@ -53,7 +53,7 @@ class MovieCard extends React.Component{
         //Destructing the state object in render function
         const {title, plot, poster, price, rating,star,fav,isInCart} =  this.props.movies;
         console.log(this.props.movies)
-        const{movies,addStars}=this.props
+        const{movies,addStars,decStars}=this.props
           
         return(
             //Movie Card
@@ -81,7 +81,7 @@ class MovieCard extends React.Component{
                             <img className="str-btn" 
                                 alt="Decrease" 
                                 src="https://cdn-icons-png.flaticon.com/128/2801/2801932.png" 
-                                onClick={this.decStars}
+                                onClick={()=>{decStars(movies)}}
                             />
                             <img className="stars" 
                                     alt="stars" 
