@@ -53,6 +53,7 @@ class MovieCard extends React.Component{
         //Destructing the state object in render function
         const {title, plot, poster, price, rating,star,fav,isInCart} =  this.props.movies;
         console.log(this.props.movies)
+        const{movies,addStars}=this.props
           
         return(
             //Movie Card
@@ -90,7 +91,7 @@ class MovieCard extends React.Component{
                                 alt="increase" 
                                 src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png" 
                                 // No binding required as addStars() is an arrow function
-                                onClick={this.addStars}
+                                onClick={()=>{addStars(movies)}}
                             />
                             <span className="starCount">{star}</span>
                         </div>
