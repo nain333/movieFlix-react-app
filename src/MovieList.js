@@ -69,6 +69,27 @@ class MovieList extends React.Component{
       movies
     })
   }
+  handleToggleFav = (movie) => {
+    const { movies } = this.state;
+    const mid = movies.indexOf(movie);
+    movies[mid].fav = !movies[mid].fav;
+    console.log("inside handleToggleFav: ",movies[mid].fav )
+    
+    this.setState({
+      movies
+    });
+  }
+  handleIncart = (movie) => {
+    const { movies } = this.state;
+    const mid = movies.indexOf(movie);
+    movies[mid].isInCart = !movies[mid].isInCart;
+    console.log("inside handleToggleFav: ",movies[mid].isInCart )
+    
+    this.setState({
+      movies
+    });
+  }
+  
     render(){
         const {movies} =  this.state;
           
@@ -78,6 +99,8 @@ class MovieList extends React.Component{
                 <MovieCard movies = {movie}
                             addStars={this.handleIncStar}
                             decStars={this.handleDecStar}
+                            toggleFav={this.handleToggleFav}
+                            tCart={this.handleIncart}
                            key = {index}/>
 
             ))}              

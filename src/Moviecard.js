@@ -44,6 +44,7 @@ class MovieCard extends React.Component{
   
   //Toggle add to cart button
   toggleCart= () => {
+    
     this.setState({
         isInCart: !this.state.isInCart
     })
@@ -52,8 +53,8 @@ class MovieCard extends React.Component{
     render(){
         //Destructing the state object in render function
         const {title, plot, poster, price, rating,star,fav,isInCart} =  this.props.movies;
-        console.log(this.props.movies)
-        const{movies,addStars,decStars}=this.props
+        console.log(this.props)
+        const{movies,addStars,decStars,toggleFav,tCart}=this.props
           
         return(
             //Movie Card
@@ -97,7 +98,7 @@ class MovieCard extends React.Component{
                         </div>
 
                         {/**conditional rendering on Favourite button */}
-                        <button className={fav?"unfavourite-btn":"favourite-btn"}  onClick={this.toggleFav}>
+                        <button className={fav?"unfavourite-btn":"favourite-btn"}  onClick={()=>{toggleFav(movies)}}>
                             {fav ? "Un-favourite":"Favourite"}
                         </button>
                         {/**
@@ -106,7 +107,7 @@ class MovieCard extends React.Component{
                          */}
 
                             {/**Conditional Rendering on Add to Cart Button */}
-                        <button className={isInCart?"unfavourite-btn":"cart-btn"}  onClick={this.toggleCart}>
+                        <button className={isInCart?"unfavourite-btn":"cart-btn"}  onClick={()=>{tCart(movies)}}>
                             {isInCart ? "Remove from Cart":"Add to Cart"}
                         </button>
                         
