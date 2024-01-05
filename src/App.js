@@ -1,11 +1,11 @@
 import MovieList from "./MovieList";
 // import MovieCard from "./Moviecard";
+import Navbar from "./NavBar";
 function App() {
   return (
     <>
-    <h1>
-      Movie Flix
-    </h1>
+    <Navbar/>
+    
     {/* <MovieCard/> */}
     <MovieList/>
     
